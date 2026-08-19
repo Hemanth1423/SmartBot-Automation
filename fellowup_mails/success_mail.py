@@ -1,12 +1,14 @@
 import smtplib
 from email.mime.text import MIMEText
+import os
+from dotenv import load_doenv
 
 
-import smtplib
-from email.mime.text import MIMEText
+env_path=os.path.join(os.path.dirname(__file__),'..','.env')
+load_doenv(dotenv_path=env_path)
 
-sender = "kuppamhemanth@gmail.com"
-password = "grkz ddbw pbvd wzuy"
+sender = os.getenv("sender_mail")
+password = os.getenv("sender_pass")
 
 
 def send_email(name, email, company, message):
